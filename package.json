@@ -1,0 +1,66 @@
+{
+  "version": "0.0.0",
+  "name": "react-leaflet-bounds",
+  "repository": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Carl Vitullo"
+  },
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
+  "peerDependencies": {
+    "prop-types": ">=15",
+    "react": ">=15"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.2.0",
+    "@types/prop-types": "^15.5.1",
+    "@types/react": "^16.0.5",
+    "@types/react-leaflet": "^1.1.4",
+    "enzyme-adapter-react-15": "^1.0.0",
+    "leaflet": "^1.2.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-leaflet": "^1.7.1",
+    "react-test-renderer": "^15",
+    "typescript": "^2.5.2",
+    "vcarl-scripts": "^0.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "collectCoverageFrom": [
+      "test/**/*.{ts,tsx}"
+    ],
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "<rootDir>/test/**/*.ts?(x)",
+      "<rootDir>/test/**/?(*.)(spec|test).ts?(x)"
+    ],
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "setupFiles": [
+      "./test/setupTests.js"
+    ]
+  },
+  "scripts": {
+    "test": "vcarl-scripts test",
+    "start": "vcarl-scripts start",
+    "build": "vcarl-scripts build",
+    "init": "vcarl-scripts init"
+  }
+}
