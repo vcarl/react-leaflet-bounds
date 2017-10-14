@@ -1,13 +1,10 @@
 import * as React from "react";
-import { LatLng, Map, Evented } from "leaflet";
-// import * as L from "leaflet";
+import { LatLng, Map } from "leaflet";
 import * as PropTypes from "prop-types";
 
 export interface Bounds {
   northEast: LatLng;
-  // northEast: L.LatLng;
   southWest: LatLng;
-  // southWest: L.LatLng;
 }
 
 export interface Props {
@@ -15,8 +12,7 @@ export interface Props {
   render: ({ bounds }: { bounds: Bounds }) => React.ReactElement<any>;
 }
 
-export default class MapBounds extends React.Component<Props, Evented> {
-// export default class MapBounds extends React.Component<Props, L.Evented> {
+export default class MapBounds extends React.Component<Props, {}> {
   static contextTypes = {
     map: PropTypes.instanceOf(Map)
   };
