@@ -1,5 +1,5 @@
 import * as React from "react";
-import { LatLng, Map } from "leaflet";
+import { LatLng } from "leaflet";
 import * as PropTypes from "prop-types";
 
 export interface Bounds {
@@ -14,7 +14,7 @@ export interface Props {
 
 export default class MapBounds extends React.Component<Props, {}> {
   static contextTypes = {
-    map: PropTypes.instanceOf(Map)
+    map: PropTypes.object
   };
   componentDidMount() {
     this.context.map.on("moveend", this.handleViewportChange);
