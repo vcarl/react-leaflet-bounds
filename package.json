@@ -18,19 +18,33 @@
     "react": ">=15"
   },
   "devDependencies": {
+    "@types/jest": "^21.1.8",
     "@types/leaflet": "^1.2.0",
     "@types/prop-types": "^15.5.1",
     "@types/react": "^16.0.5",
     "@types/react-leaflet": "^1.1.4",
+    "@vcarl/tsc-watch": "^1.0.8",
+    "cross-env": "^5.0.5",
+    "enzyme": "^3.0.0",
     "enzyme-adapter-react-15": "^1.0.0",
+    "jest": "^22.0.3",
     "leaflet": "^1.2.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-leaflet": "^1.7.1",
     "react-test-renderer": "^15",
-    "typescript": "^2.5.2",
-    "vcarl-scripts": "^0.0.0"
+    "resolve": "^1",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.50.0",
+    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-filesize": "^1.4.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-uglify": "^2.0.1",
+    "ts-jest": "^21.0.1",
+    "typescript": "^2.6.2"
   },
   "jest": {
     "moduleFileExtensions": ["ts", "tsx", "js", "json"],
@@ -46,9 +60,11 @@
     "setupFiles": ["./test/setupTests.js"]
   },
   "scripts": {
-    "test": "vcarl-scripts test",
-    "start": "vcarl-scripts start",
-    "build": "vcarl-scripts build",
-    "init": "vcarl-scripts init"
+    "test": "jest --env=jsdom",
+    "start":
+      "cross-env NODE_ENV=development tsc-watch --onSuccess \"rollup -c\"",
+    "prebuild": "rimraf dist",
+    "build":
+      "tsc && cross-env NODE_ENV=production rollup -c && cross-env NODE_ENV=development rollup -c && rimraf compiled"
   }
 }

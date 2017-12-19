@@ -8,13 +8,12 @@ import uglify from "rollup-plugin-uglify";
 const shared = {
   input: "compiled/index.js",
   sourcemap: true,
-  external: ["react", 'leaflet', "prop-types"],
+  external: ["react", "prop-types", "leaflet"],
   globals: {
     react: "React",
-    leaflet: "L",
-    "prop-types": "PropTypes"
-  },
-  exports: "named"
+    "prop-types": "PropTypes",
+    leaflet: "L"
+  }
 };
 
 export default [
@@ -39,7 +38,6 @@ export default [
       commonjs({
         include: /node_modules/,
         namedExports: {
-          'node_modules/leaflet/dist/leaflet-src.js': [ 'Map' ],
           "node_modules/prop-types/index.js": [
             "object",
             "oneOfType",
