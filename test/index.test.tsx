@@ -1,11 +1,7 @@
 import * as React from "react";
 import MapBounds from "../src/index";
 
-import EventEmitter from "events";
-
 import { shallow } from "enzyme";
-
-const mapEventMock = new EventEmitter();
 
 const southWest = {
   lat: 0,
